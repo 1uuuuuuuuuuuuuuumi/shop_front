@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'PeoplefirstFightingTTF';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-2@1.0/PeoplefirstFightingTTF.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header_container {
+  width: 100%;
+  margin-bottom: 13px;
+}
+
+.login_div {
+  text-align: right;
+}
+
+.login_div > span {
+  margin-left: 10px;
+}
+
+.banner_div {
+  position: relative;
+}
+
+.banner_div > img {
+  width: 100%;
+  display: block;
+}
+
+.banner_div > p {
+  position: absolute;
+  top: 20%;
+  left: 10px;
+  font-weight: 900;
+  font-size: 3rem;
+  transform: translate(50px, 50px);
+  letter-spacing: 5px;
+  font-family: 'PeoplefirstFightingTTF';
+}
+
+.menu_div {
+  padding: 9px;
+  border: 1px solid #eeeeee;
+}
+
+.menu_ul {
+  display: flex;
+  gap: 20px;
+}
