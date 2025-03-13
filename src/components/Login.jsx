@@ -4,6 +4,7 @@ import ShopInput from "../common_component/ShopInput";
 import ShopButton from "../common_component/ShopButton";
 import axios from "axios";
 import { loginUser } from "../apis/userApi";
+import { useNavigate } from "react-router-dom";
 
 /**
  * axios.get 으로 여러 데이터를 전달하는 방법
@@ -18,7 +19,8 @@ import { loginUser } from "../apis/userApi";
  * (페이지 번호 23번)
  */
 
-const Login = () => {
+const Login = ({setLoginInfo}) => {
+  const nav = useNavigate();
   const [loginData, setLoginData] = useState({
     userId: "",
     userPw: "",
@@ -30,6 +32,7 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
+
 
   const login = () => {
     loginUser(loginData)
@@ -43,9 +46,23 @@ const Login = () => {
           alert("성공 Σ>―(〃°ω°〃)♡→");
           //로그인에 성공하면
           //sessionsStorage에 로그인하는 회원의 아이디, 이름, 권한 정보를 저장한다.
-          sessionStorage.setItem('userId', res.data.userId);
-          sessionStorage.setItem('userName', res.data.userName);
-          sessionStorage.setItem('userRoll', res.data.userRoll);
+          // sessionStorage.setItem('userId', res.data.userId);
+          // sessionStorage.setItem('userName', res.data.userName);
+          // sessionStorage.setItem('userRoll', res.data.userRoll);
+          
+          //로그인한 회원의 아이디, 이름, 권한 정보만 가진 객체 생성
+          const loginInfo = {
+            userId : res.data.userId,
+            userName : res.data.userName,
+            userRoll : res.data.userRoll
+          }
+
+          //loginInfo 객체를 json(객체형태로 생긴 문자열)으로 변환 후 세션에 저장
+          //JSON.stringify(객체) -> 객체를 문자열화(json) 한다
+          //JSON.parse(json) -> json 데이터를 객체로 변환한다.
+          sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
+          nav("/");
+          window.location.reload(); //새로고침
         }
       })
       .catch();
