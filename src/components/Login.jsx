@@ -63,6 +63,9 @@ const Login = ({setLoginInfo}) => {
           sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
           nav("/");
           window.location.reload(); //새로고침
+          sessionStorage.setItem('userId', res.data.userId);
+          sessionStorage.setItem('userName', res.data.userName);
+          sessionStorage.setItem('userRoll', res.data.userRoll);
         }
       })
       .catch();
