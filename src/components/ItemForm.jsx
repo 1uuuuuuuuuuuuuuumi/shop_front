@@ -128,6 +128,10 @@ const ItemForm = () => {
             onChange={(e) => changeBookData(e)}
           ></textarea>
         </div>
+        <div>
+          <p>도서 이미지</p>
+          <input type="file"/>
+        </div>
       </div>
       <div>
         {/* 8. 등록누르면 서버로 */}
