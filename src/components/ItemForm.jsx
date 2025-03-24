@@ -24,6 +24,12 @@ const ItemForm = () => {
     bookInfo: "",
   });
 
+  //선택한 메인 이미지를 저장할 변수
+  const [mainImg, setMainImg] = useState(null);
+
+  //선택한 상세 이미지를 저장할 변수
+  const [subImg, setSubImg] = useState(null);
+
   // 2. 카테고리 목록 조회
   useEffect(() => {
     getCategoryList()
@@ -47,7 +53,19 @@ const ItemForm = () => {
 
   //9. 등록 버튼 클릭 시 도서 등록 실행
   const regBook = () => {
-    insertBook(bookData)
+    const regForm = new FormData();
+    //도서 등록 시 (DB에 insert) 필요한 데이터 객체
+    regForm.append('cateCode', bookData.cateCode);
+    regForm.append('bookName', bookData.bookName);
+    regForm.append('bookPrice', bookData.bookPrice);
+    regForm.append('publisher', bookData.publisher);
+    regForm.append('bookInfo', bookData.bookInfo);
+
+    //첨부파일 데이터 적재
+    regForm.append('mainImg', mainImg);
+    regForm.append('subImg', subImg);
+
+    insertBook(regForm)
       .then((res) => {
         alert("성공");
       })
@@ -129,8 +147,14 @@ const ItemForm = () => {
           ></textarea>
         </div>
         <div>
-          <p>도서 이미지</p>
-          <input type="file"/>
+          <p>도서 메인 이미지</p>
+          <input type="file" 
+          onChange={e => setMainImg(e.target.files[0])}/>
+        </div>
+        <div>
+          <p>도서 상세 이미지</p>
+          <input type="file" 
+          onChange={e => setSubImg(e.target.files[0])}/>
         </div>
       </div>
       <div>
