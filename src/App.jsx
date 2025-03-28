@@ -1,19 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import UserLayout from "./components/UserLayout";
-import AdminLayout from "./components/AdminLayout";
-import ItemForm from "./components/ItemForm";
-import CateManage from "./components/CateManage";
-import State변경함수흐름 from "./components/practice/State변경함수흐름";
-import Axios흐름 from "./components/practice/Axios흐름";
-import ShopButton from "./common_component/ShopButton";
-import ShopInput from "./common_component/ShopInput";
-import Join from "./components/Join";
-import State변경함수흐름2 from "./components/practice/State변경함수흐름2";
-import State변경함수흐름3 from "./components/practice/State변경함수흐름3";
-import Login from "./components/Login";
-import StorageTest from "./components/practice/StorageTest";
-import UploadTest from "./components/practice/UploadTest";
+import UserLayout from "./routes/common/UserLayout";
+import Join from "./routes/member/Join";
+import ItemForm from "./routes/book/ItemForm";
+import CateManage from "./routes/book/CateManage";
+import Login from "./routes/member/Login";
+import AdminLayout from "./routes/common/AdminLayout";
+
+
 
 function App() {
 

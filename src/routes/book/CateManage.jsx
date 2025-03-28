@@ -4,7 +4,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./CateManage.module.css";
-import * as bookApi from "../apis/bookApi"; //➀사용할것들 가져오기
+import * as bookApi from "../../apis/bookApi"; //➀사용할것들 가져오기
 
 const CateManage = () => {
   // 1. 카테고리 목록 데이터를 저장할 변수

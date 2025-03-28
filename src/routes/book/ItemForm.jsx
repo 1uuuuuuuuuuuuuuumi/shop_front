@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCategoryList, insertBook } from "../apis/bookApi";
-import ShopInput from "../common_component/ShopInput";
-import ShopButton from "../common_component/ShopButton";
+import { getCategoryList, insertBook } from "../../apis/bookApi";
+import ShopInput from "../../common_component/ShopInput";
+import ShopButton from "../../common_component/ShopButton";
 
 // 상품 등록 컴포넌트
 // 도서명 input
@@ -55,19 +55,20 @@ const ItemForm = () => {
   const regBook = () => {
     const regForm = new FormData();
     //도서 등록 시 (DB에 insert) 필요한 데이터 객체
-    regForm.append('cateCode', bookData.cateCode);
-    regForm.append('bookName', bookData.bookName);
-    regForm.append('bookPrice', bookData.bookPrice);
-    regForm.append('publisher', bookData.publisher);
-    regForm.append('bookInfo', bookData.bookInfo);
+    regForm.append("cateCode", bookData.cateCode);
+    regForm.append("bookName", bookData.bookName);
+    regForm.append("bookPrice", bookData.bookPrice);
+    regForm.append("publisher", bookData.publisher);
+    regForm.append("bookInfo", bookData.bookInfo);
 
     //첨부파일 데이터 적재
-    regForm.append('mainImg', mainImg);
-    regForm.append('subImg', subImg);
+    regForm.append("mainImg", mainImg);
+    regForm.append("subImg", subImg);
 
     insertBook(regForm)
       .then((res) => {
         alert("성공");
+        console.log(res.data);
       })
       .catch((error) => console.log(error));
   };
@@ -148,13 +149,11 @@ const ItemForm = () => {
         </div>
         <div>
           <p>도서 메인 이미지</p>
-          <input type="file" 
-          onChange={e => setMainImg(e.target.files[0])}/>
+          <input type="file" onChange={(e) => setMainImg(e.target.files[0])} />
         </div>
         <div>
           <p>도서 상세 이미지</p>
-          <input type="file" 
-          onChange={e => setSubImg(e.target.files[0])}/>
+          <input type="file" onChange={(e) => setSubImg(e.target.files[0])} />
         </div>
       </div>
       <div>

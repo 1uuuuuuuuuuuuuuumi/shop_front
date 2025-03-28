@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ShopInput from "../common_component/ShopInput";
-import ShopSelect from "../common_component/ShopSelect";
-import ShopButton from "../common_component/ShopButton";
-import { regUser } from "../apis/userApi";
+import ShopInput from "../../common_component/ShopInput";
+import ShopSelect from "../../common_component/ShopSelect";
+import ShopButton from "../../common_component/ShopButton";
+import { regUser } from "../../apis/userApi";
 import styles from "./Join.module.css";
 
 const Join = () => {
