@@ -68,7 +68,19 @@ const ItemForm = () => {
     insertBook(regForm)
       .then((res) => {
         alert("성공");
-        console.log(res.data);
+
+        //데이터 초기화
+        setBookData({
+          cateCode: 1, // 디비에 등록된 cateCode 번호 !
+          bookName: "",
+          bookPrice: 0,
+          publisher: "",
+          bookInfo: "",
+        });
+
+        setMainImg(null);
+        setSubImg(null);
+
       })
       .catch((error) => console.log(error));
   };

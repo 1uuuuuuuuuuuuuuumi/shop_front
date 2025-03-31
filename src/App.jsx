@@ -6,6 +6,7 @@ import ItemForm from "./routes/book/ItemForm";
 import CateManage from "./routes/book/CateManage";
 import Login from "./routes/member/Login";
 import AdminLayout from "./routes/common/AdminLayout";
+import ItemList from "./routes/book/ItemList";
 
 
 
@@ -27,7 +28,7 @@ function App() {
           }
         >
           {/* 상품 목록 페이지 */}
-          <Route path="" element={<div>상품 목록 페이지</div>} />
+          <Route path="" element={<ItemList />} />
 
           {/* 상품 상세 페이지 */}
           <Route path="detail" element={<div>상품 상세 페이지</div>} />

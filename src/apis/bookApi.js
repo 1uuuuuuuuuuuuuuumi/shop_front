@@ -55,3 +55,10 @@ export const insertBook = (bookData) => {
   const response = axios.post("/api/books", bookData, fileConfig);
   return response;
 };
+
+
+//도서 목록 조회
+export const getBookList = () => {
+  const response = axios.get('/api/books');
+  return response;
+}
